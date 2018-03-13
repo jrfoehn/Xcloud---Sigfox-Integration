@@ -1,0 +1,11 @@
+{
+  "name": "Sigfox Decoded",
+  "type": "CUSTOM",
+  "debugMode": true,
+  "configuration": {
+    "decoder": "// Decode an uplink message from a buffer\n// payload - array of bytes\n// metadata - key/value object\n\n/** Decoder **/\n\n// decode payload to json\nvar data = decodeToJson(payload);\n\n/** Helper functions **/\n\nfunction decodeToString(payload) {\n   return String.fromCharCode.apply(String, payload);\n}\n\nfunction decodeToJson(payload) {\n   // covert payload to string.\n   var str = decodeToString(payload);\n\n   // parse string to JSON\n   var data = JSON.parse(str);\n   return data;\n}\n\nreturn data;\n"
+  },
+  "additionalInfo": {
+    "description": "Sigfox converter for data decoded to JSON on the Sigfox Backend"
+  }
+}
